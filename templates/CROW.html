@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crow Information</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+	<style>
+		body {
+			background-color: #000;
+			color: #0F0;
+		}
+
+		.container {
+			padding: 20px;
+			margin: 0 auto;
+			max-width: 800px;
+		}
+
+		.table {
+			background-color: #000;
+			color: #0F0;
+		}
+
+		.table th {
+			background-color: #444;
+			color: #0F0;
+		}
+
+		.table tr:hover {
+			background-color: #111;
+		}
+
+		.table a {
+			color: #0F0;
+			text-decoration: none;
+			border-bottom: 1px dotted #0F0;
+			transition: all 0.3s;
+		}
+
+		.table a:hover {
+			color: #0F0;
+			background-color: #111;
+			text-decoration: none;
+			border-bottom: 1px solid #0F0;
+			padding: 2px;
+			border-radius: 3px;
+		}
+
+		.image {
+			max-width: 100%;
+			height: auto;
+			display: block;
+			margin: 20px auto;
+		}
+
+		.timestamp {
+			text-align: center;
+			font-size: 14px;
+			margin: 20px 0;
+			color: #0F0;
+		}
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">CAWWWW!!!!!!!</h1>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>ICAW24</th>
+					<th>Cawsign</th>
+					<th>Origin Cawntry</th>
+					<th>Latitude</th>
+					<th>Longitude</th>
+					<th>Altitude</th>
+					<th>Velocity</th>
+					<th>Heading</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for data in latest_data %}
+				<tr>
+					<td>{{ data[0] }}</td>
+					<td>{{ data[1] }}</td>
+					<td>{{ data[2] }}</td>
+					<td>{{ data[5] }}</td>
+					<td>{{ data[6] }}</td>
+					<td>{{ data[7] }}</td>
+					<td>{{ data[9] }}</td>
+					<td>{{ data[10] }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="text-center">
+			<img src="static/maps/CROW.png" alt="Flight Map" class="image">
+		</div>
+
+		<p class="timestamp">Latest UTC Timestamp: {{ latest_time }}</p>
+		<div class="text-center">
+			<a class="btn btn-outline-light me-2" href="http://164.92.140.44/belarus" target="_blank">Belarus Map</a>
+			<a class="btn btn-outline-light" href="http://164.92.140.44/ukraine" target="_blank">Ukraine Map</a>
+			</div>
+	</div>
+</body>
+</html>
+
